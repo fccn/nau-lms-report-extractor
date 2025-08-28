@@ -1,0 +1,5 @@
+course-v1:NAU+FIRST+2025
+course-v1:NAU+SECOND+2025
+course-v1:NAU+THRID+2025
+course-v1:NAU+FOUTH+2025
+course-v1:NAU+FIFTH+2025

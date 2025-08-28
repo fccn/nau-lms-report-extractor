@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NAU Report Generator</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>NAU Report Generator</h1>
+      <p>Submit report jobs for one or many courses. Use a course-team account with data_researcher permissions.</p>
+
+      <form id="report-form">
+        <div class="grid">
+          <label>
+            <span>Email</span>
+            <input type="email" id="email" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" id="password" required />
+          </label>
+        </div>
+
+        <label>
+          <span>LMS URL</span>
+          <input type="text" id="lms_url" placeholder="https://lms.example.com" required />
+        </label>
+
+        <label>
+          <span>Report type</span>
+          <select id="report" required>
+            <option value="get_students_profile">get_students_profile</option>
+            <option value="get_students_who_may_enroll">get_students_who_may_enroll</option>
+            <option value="get_student_anonymized_ids">get_student_anonymized_ids</option>
+            <option value="calculate_grades">calculate_grades</option>
+            <option value="problem_grade_report">problem_grade_report</option>
+            <option value="ora_data_report">ora_data_report</option>
+            <option value="ora_summary_report">ora_summary_report</option>
+            <option value="get_problem_responses">get_problem_responses</option>
+            <option value="export_course_certificates">export_course_certificates</option>
+            <option value="export_course_certificates_pdfs">export_course_certificates_pdfs</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Courses (one per line)</span>
+          <textarea id="courses" rows="8" placeholder="Insert the list of course ids such as course-v1:ORG+COURSE+RUN, or the course ids and problem block ids such as course-v1:ORG+COURSE+RUN block-v1:ORG+COURSE+RUN+type@problem+block@xyz"></textarea>
+          <small>Optionally append extra info (e.g., problem block id) separated by space, comma, or semicolon.</small>
+        </label>
+        <label>
+          <span>Or upload a courses file</span>
+          <input type="file" id="courses_file" accept=".txt" />
+          <small>Each line: course id, optionally followed by extra info.</small>
+        </label>
+
+        <button id="submit-btn" type="submit">Submit Reports</button>
+      </form>
+
+      <section id="results" class="hidden">
+        <h2>Results</h2>
+        <div id="summary"></div>
+        <ul id="details"></ul>
+      </section>
+
+      <footer>
+        <small>Reports are submitted to the LMS. Download them later from the Instructor &gt; Data Download tab.</small>
+      </footer>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+  </html>
+
+
